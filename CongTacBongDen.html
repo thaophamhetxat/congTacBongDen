@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" id="on" onclick="ON()">ON</button>
+<button type="button" id="off" onclick="OFF()">OFF</button>
+<img  id="lightON"/>
+<script>
+    //tạo 1 class pin
+    class Battery {
+        energy;
+        constructor(energy) {
+            this.energy = energy;
+        }
+    };
+    //tạo 1 class đèn
+    class Den {
+        // tạo 1 biến battery
+        battery;
+        constructor(battery) {
+            this.battery = battery;
+        }
+        status() {
+            if (this.battery.energy > 0) {
+                alert('con pin')
+            } else alert('het pin')
+        }
+        //trạng thái khi chạy, lấy 1 biến battery đã tạo ở class 2 . tới đối tượng enery trên class 1 để lấy giá trị
+        turnOn(){
+            if(this.battery.energy>0){
+                alert('Đèn bật');
+                this.battery.energy--;
+            }else {
+                alert('Hết pin')
+            }
+        }
+        turnOff(){
+            alert('Đèn tắt');
+        }
+    }
+    function ON(){
+        document.getElementById('on').value = den.turnOn();
+    }
+    function OFF(){
+        document.getElementById('off').value = den.turnOff();
+    }
+    let battery = new Battery(2);
+    let den = new Den(battery);
+
+</script>
+</body>
+</html>
